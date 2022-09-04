@@ -5,7 +5,7 @@
 
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Clientes</h1>
+		<h1 class="h3 mb-0 text-gray-800">Tenistas</h1>
 		<a href="registro_cliente.php" class="btn btn-primary">Nuevo</a>
 	</div>
 
@@ -17,10 +17,13 @@
 					<thead class="thead-dark">
 						<tr>
 							<th>ID</th>
-							<th>DNI</th>
 							<th>NOMBRE</th>
+							<th>Apellidos</th>
 							<th>TELEFONO</th>
 							<th>DIRECCIÓN</th>
+							<th>FECHA NACIMIENTO</th>
+							<th>ALTURA</th>
+							<th>PESO</th>
 							<?php if ($_SESSION['rol'] == 1) { ?>
 							<th>ACCIONES</th>
 							<?php } ?>
@@ -36,10 +39,13 @@
 							while ($data = mysqli_fetch_assoc($query)) { ?>
 								<tr>
 									<td><?php echo $data['idcliente']; ?></td>
-									<td><?php echo $data['dni']; ?></td>
 									<td><?php echo $data['nombre']; ?></td>
+									<td><?php echo $data['apellidos']; ?></td>
 									<td><?php echo $data['telefono']; ?></td>
 									<td><?php echo $data['direccion']; ?></td>
+									<td><?php echo $data['fecha_nacimiento']; ?></td>
+									<td><?php echo $data['altura']; ?></td>
+									<td><?php echo $data['peso']; ?></td>
 									<?php if ($_SESSION['rol'] == 1) { ?>
 									<td>
 										<a href="editar_cliente.php?id=<?php echo $data['idcliente']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>

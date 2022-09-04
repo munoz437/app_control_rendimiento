@@ -13,6 +13,11 @@ if (!empty($_POST)) {
         $direccion = $_POST['direccion'];
         $usuario_id = $_SESSION['idUser'];
 
+        $apellidos = $_POST['apellidos'];
+        $fecha_nacimiento = $_POST['fecha_nacimiento'];
+        $altura = $_POST['altura'];
+        $peso = $_POST['peso'];
+
         $result = 0;
         if (is_numeric($dni) and $dni != 0) {
             $query = mysqli_query($conexion, "SELECT * FROM cliente where dni = '$dni'");
@@ -23,10 +28,10 @@ if (!empty($_POST)) {
                                     El dni ya existe
                                 </div>';
         } else {
-            $query_insert = mysqli_query($conexion, "INSERT INTO cliente(dni,nombre,telefono,direccion, usuario_id) values ('$dni', '$nombre', '$telefono', '$direccion', '$usuario_id')");
+            $query_insert = mysqli_query($conexion, "INSERT INTO cliente(dni,nombre,telefono,direccion, usuario_id,apellidos,fecha_nacimiento,peso,altura) values ('$dni', '$nombre', '$telefono', '$direccion', '$usuario_id','$apellidos','$fecha_nacimiento','$altura','$peso')");
             if ($query_insert) {
                 $alert = '<div class="alert alert-primary" role="alert">
-                                    Cliente Registrado
+                                    Tenista Registrado
                                 </div>';
             } else {
                 $alert = '<div class="alert alert-danger" role="alert">
@@ -58,8 +63,12 @@ if (!empty($_POST)) {
                     <input type="number" placeholder="Ingrese dni" name="dni" id="dni" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" placeholder="Ingrese Nombre" name="nombre" id="nombre" class="form-control">
+                    <label for="nombre">Nombres</label>
+                    <input type="text" placeholder="Ingrese Nombres" name="nombre" id="nombre" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Apellidos</label>
+                    <input type="text" placeholder="Ingrese Apellidos" name="apellidos" id="apellidos" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="telefono">Teléfono</label>
@@ -69,7 +78,19 @@ if (!empty($_POST)) {
                     <label for="direccion">Dirección</label>
                     <input type="text" placeholder="Ingrese Direccion" name="direccion" id="direccion" class="form-control">
                 </div>
-                <input type="submit" value="Guardar Cliente" class="btn btn-primary">
+                <div class="form-group">
+                    <label for="fecha_nac">Fecha de nacimiento</label>
+                    <input type="date" placeholder="Ingrese Fecha de nacimiento" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="peso">Peso</label>
+                    <input type="number" placeholder="Ingrese peso del tenista" name="peso" id="peso" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="altura">Altura</label>
+                    <input type="number" placeholder="Ingrese altura" name="altura" id="altura" class="form-control">
+                </div>
+                <input type="submit" value="Guardar Tenista" class="btn btn-primary btn-block">
             </form>
         </div>
     </div>
