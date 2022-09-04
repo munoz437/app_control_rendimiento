@@ -53,7 +53,7 @@ if (!empty($_SESSION['active'])) {
   <link href="sistema/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">  
   <link href="sistema/css/sb-admin-2.min.css" rel="stylesheet">-->
   <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
-  <link rel="icon" href="img/logo.ico">
+  <link rel="icon" href="sistema/img/logo.ico">
   <style>
     .colorVerde{
       background: #11998e;  /* fallback for old browsers */
