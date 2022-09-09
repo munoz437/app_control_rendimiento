@@ -4,35 +4,26 @@ if (!empty($_POST)) {
   $alert = "";
   if (empty($_POST['nombre']) || empty($_POST['telefono']) || empty($_POST['direccion'])) {
     $alert = '<p class"error">Todo los campos son requeridos</p>';
-  } else {
-    $idcliente = $_POST['id'];
-    $dni = $_POST['dni'];
+  }
+   else {
+    $idcliente = $_POST['id'];   
     $nombre = $_POST['nombre'];
     $telefono = $_POST['telefono'];
     $direccion = $_POST['direccion'];
+    $apellido=$_POST['apellido'];
+    $altura=$_POST['altura'];
+    $peso=$_POST['peso'];
 
-    $result = 0;
-    if (is_numeric($dni) and $dni != 0) {
-
-      $query = mysqli_query($conexion, "SELECT * FROM cliente where (dni = '$dni' AND idcliente != $idcliente)");
-      $result = mysqli_fetch_array($query);
-      $resul = mysqli_num_rows($query);
-    }
-
-    if ($resul >= 1) {
-      $alert = '<p class"error">El dni ya existe</p>';
-    } else {
-      if ($dni == '') {
-        $dni = 0;
-      }
-      $sql_update = mysqli_query($conexion, "UPDATE cliente SET dni = $dni, nombre = '$nombre' , telefono = '$telefono', direccion = '$direccion' WHERE idcliente = $idcliente");
+    
+      $sql_update = mysqli_query($conexion, "UPDATE cliente SET nombre = '$nombre' , telefono = '$telefono', direccion = '$direccion', apellidos = '$apellido', altura = '$altura', peso = '$peso' WHERE idcliente = $idcliente");
 
       if ($sql_update) {
-        $alert = '<p class"exito">Cliente Actualizado correctamente</p>';
-      } else {
-        $alert = '<p class"error">Error al Actualizar el Cliente</p>';
+        $alert = '<p class"exito">Tenista Actualizado correctamente</p>';
       }
-    }
+      else {
+        $alert = '<p class"error">Error al Actualizar Tenista</p>';
+      }
+    
   }
 }
 // Mostrar Datos
@@ -47,11 +38,13 @@ if ($result_sql == 0) {
   header("Location: lista_cliente.php");
 } else {
   while ($data = mysqli_fetch_array($sql)) {
-    $idcliente = $data['idcliente'];
-    $dni = $data['dni'];
+    $idcliente = $data['idcliente'];    
     $nombre = $data['nombre'];
     $telefono = $data['telefono'];
     $direccion = $data['direccion'];
+    $apellido=$data['apellidos'];
+    $altura=$data['altura'];
+    $peso=$data['peso'];
   }
 }
 ?>
@@ -63,14 +56,14 @@ if ($result_sql == 0) {
 
               <form class="" action="" method="post">
                 <?php echo isset($alert) ? $alert : ''; ?>
-                <input type="hidden" name="id" value="<?php echo $idcliente; ?>">
-                <div class="form-group">
-                  <label for="dni">Dni</label>
-                  <input type="number" placeholder="Ingrese dni" name="dni" id="dni" class="form-control" value="<?php echo $dni; ?>">
-                </div>
+                <input type="hidden" name="id" value="<?php echo $idcliente; ?>">                
                 <div class="form-group">
                   <label for="nombre">Nombre</label>
                   <input type="text" placeholder="Ingrese Nombre" name="nombre" class="form-control" id="nombre" value="<?php echo $nombre; ?>">
+                </div>
+                <div class="form-group">
+                  <label for="apellido">Apellido</label>
+                  <input type="text" placeholder="Ingrese apellido" name="apellido" class="form-control" id="apellido" value="<?php echo $apellido; ?>">
                 </div>
                 <div class="form-group">
                   <label for="telefono">Teléfono</label>
@@ -80,7 +73,15 @@ if ($result_sql == 0) {
                   <label for="direccion">Dirección</label>
                   <input type="text" placeholder="Ingrese Direccion" name="direccion" class="form-control" id="direccion" value="<?php echo $direccion; ?>">
                 </div>
-                <button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i> Editar Cliente</button>
+                <div class="form-group">
+                  <label for="altura">Altura</label>
+                  <input type="text" placeholder="Ingrese altura" name="altura" class="form-control" id="altura" value="<?php echo $altura; ?>">
+                </div>
+                <div class="form-group">
+                  <label for="peso">Peso</label>
+                  <input type="text" placeholder="Ingrese peso" name="peso" class="form-control" id="peso" value="<?php echo $peso; ?>">
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i> Editar Tenista</button>
               </form>
             </div>
           </div>
