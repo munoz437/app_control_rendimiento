@@ -11,11 +11,12 @@ if (!empty($_POST)) {
     $telefono = $_POST['telefono'];
     $direccion = $_POST['direccion'];
     $apellido=$_POST['apellido'];
+    $fecha_nacimiento=$_POST['fecha_nacimiento'];
     $altura=$_POST['altura'];
     $peso=$_POST['peso'];
 
     
-      $sql_update = mysqli_query($conexion, "UPDATE cliente SET nombre = '$nombre' , telefono = '$telefono', direccion = '$direccion', apellidos = '$apellido', altura = '$altura', peso = '$peso' WHERE idcliente = $idcliente");
+      $sql_update = mysqli_query($conexion, "UPDATE cliente SET nombre = '$nombre' , telefono = '$telefono', direccion = '$direccion', apellidos = '$apellido',fecha_nacimiento = '$fecha_nacimiento' ,altura = '$altura', peso = '$peso' WHERE idcliente = $idcliente");
 
       if ($sql_update) {
         $alert = '<p class"exito">Tenista Actualizado correctamente</p>';
@@ -43,6 +44,7 @@ if ($result_sql == 0) {
     $telefono = $data['telefono'];
     $direccion = $data['direccion'];
     $apellido=$data['apellidos'];
+    $fecha_nacimiento=$data['fecha_nacimiento'];
     $altura=$data['altura'];
     $peso=$data['peso'];
   }
@@ -58,11 +60,11 @@ if ($result_sql == 0) {
                 <?php echo isset($alert) ? $alert : ''; ?>
                 <input type="hidden" name="id" value="<?php echo $idcliente; ?>">                
                 <div class="form-group">
-                  <label for="nombre">Nombre</label>
+                  <label for="nombre">Nombres</label>
                   <input type="text" placeholder="Ingrese Nombre" name="nombre" class="form-control" id="nombre" value="<?php echo $nombre; ?>">
                 </div>
                 <div class="form-group">
-                  <label for="apellido">Apellido</label>
+                  <label for="apellido">Apellidos</label>
                   <input type="text" placeholder="Ingrese apellido" name="apellido" class="form-control" id="apellido" value="<?php echo $apellido; ?>">
                 </div>
                 <div class="form-group">
@@ -72,6 +74,10 @@ if ($result_sql == 0) {
                 <div class="form-group">
                   <label for="direccion">Dirección</label>
                   <input type="text" placeholder="Ingrese Direccion" name="direccion" class="form-control" id="direccion" value="<?php echo $direccion; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="fecha_nac">Fecha de nacimiento</label>
+                    <input type="date" placeholder="Ingrese Fecha de nacimiento" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control"  value="<?php echo $fecha_nacimiento; ?>">
                 </div>
                 <div class="form-group">
                   <label for="altura">Altura</label>

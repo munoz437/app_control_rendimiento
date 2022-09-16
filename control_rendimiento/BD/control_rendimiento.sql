@@ -1,0 +1,2 @@
+--Agregando tenista
+ALTER TABLE `cliente` ADD `apellidos` VARCHAR(50) NULL AFTER `usuario_id`, ADD `fecha_nacimiento` VARCHAR(50) NULL AFTER `apellidos`, ADD `altura` VARCHAR(50) NULL AFTER `fecha_nacimiento`, ADD `peso` VARCHAR(50) NULL AFTER `altura`
