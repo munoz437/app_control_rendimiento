@@ -2,25 +2,29 @@
   include "../conexion.php";
   if (!empty($_POST)) {
     $alert = "";
-    if (empty($_POST['proveedor']) || empty($_POST['producto']) || empty($_POST['precio']) || $_POST['precio'] <  0 || empty($_POST['cantidad'] || $_POST['cantidad'] <  0)) {
+    if (empty($_POST['nombre']) || empty($_POST['descripcion'])) {
       $alert = '<div class="alert alert-danger" role="alert">
                 Todo los campos son obligatorios
               </div>';
     } else {
-      $proveedor = $_POST['proveedor'];
-      $producto = $_POST['producto'];
-      $precio = $_POST['precio'];
-      $cantidad = $_POST['cantidad'];
+      $nombre = $_POST['nombre'];
+      $descripcion = $_POST['descripcion'];
+      $video = $_POST['video'];
+      $tiempo = $_POST['tiempo'];
+      $id_tenista = $_POST['id_tenista'];
+      $id_entrenador = $_POST['id_entrenador'];
+      $fecha = date("Y-m-d");   
+      $comentario = $_POST['comentario'];
       $usuario_id = $_SESSION['idUser'];
 
-      $query_insert = mysqli_query($conexion, "INSERT INTO producto(proveedor,descripcion,precio,existencia,usuario_id) values ('$proveedor', '$producto', '$precio', '$cantidad','$usuario_id')");
+      $query_insert = mysqli_query($conexion, "INSERT INTO ejercicio(nombre, descripcion, video, tiempo, id_tenista, id_entrenador, fecha, comentario) values ('$nombre', '$descripcion', '$video', '$tiempo','$id_tenista','$id_entrenador','$fecha','$comentario')");
       if ($query_insert) {
         $alert = '<div class="alert alert-primary" role="alert">
-                Producto Registrado
+                Ejercicio Registrado
               </div>';
       } else {
         $alert = '<div class="alert alert-danger" role="alert">
-                Error al registrar el producto
+                Error al registrar el ejercicio
               </div>';
       }
     }
@@ -40,18 +44,50 @@
    <div class="row">
      <div class="col-lg-6 m-auto">
        <form action="" method="post" autocomplete="off">
-         <?php echo isset($alert) ? $alert : ''; ?>
+         <?php echo isset($alert) ? $alert : ''; ?>         
+        
          <div class="form-group">
-           <label>Proveedor</label>
+           <label for="precio">Nombre</label>
+           <input type="text" placeholder="Ingrese nombre" class="form-control" name="nombre" id="nombre">
+         </div>
+         <div class="form-group">
+           <label for="cantidad">Descripcion</label>
+           <input type="text" placeholder="Ingrese Descripcion" class="form-control" name="descripcion" id="descripcion">
+         </div>
+         <div class="form-group">
+           <label for="cantidad">Video</label>
+           <input type="text" placeholder="Ingrese link de video" class="form-control" name="video" id="video">
+         </div>
+         <div class="form-group">
+           <label for="cantidad">Tiempo</label>
+           <input type="text" placeholder="Ingrese tiempo" class="form-control" name="tiempo" id="tiempo">
+         </div>
+         <div class="form-group">
+           <label for="cantidad">Tenista</label>
+           <select name="id_tenista" id="id_tenista" class="form-control">
+            <option value="0">Seleccione Tenista</option>
+              <?php
+                $query = mysqli_query($conexion, "SELECT * FROM cliente ORDER BY idcliente ASC");
+                $result = mysqli_num_rows($query);
+
+                if ($result > 0) {
+                  while ($data = mysqli_fetch_assoc($query)) { ?>
+                    <option value="<?php echo $data['idcliente']; ?>"><?php echo $data['nombre']; ?></option>
+                  <?php }
+                } ?>
+           </select>
+         </div>
+         <div class="form-group">
+           <label>Entrenador</label>
            <?php
-            $query_proveedor = mysqli_query($conexion, "SELECT codproveedor, proveedor FROM proveedor ORDER BY proveedor ASC");
-            $resultado_proveedor = mysqli_num_rows($query_proveedor);
-            mysqli_close($conexion);
+            $query = mysqli_query($conexion, "SELECT codproveedor, proveedor FROM proveedor ORDER BY codproveedor ASC");
+            $resultado = mysqli_num_rows($query);
             ?>
-           <select id="proveedor" name="proveedor" class="form-control">
+           <select id="id_entrenador" name="id_entrenador" class="form-control">
+              <option value="0">Seleccione Entrenador</option>
              <?php
-              if ($resultado_proveedor > 0) {
-                while ($proveedor = mysqli_fetch_array($query_proveedor)) {
+              if ($resultado > 0) {
+                while ($proveedor = mysqli_fetch_array($query)) {
                   // code...
               ?>
                  <option value="<?php echo $proveedor['codproveedor']; ?>"><?php echo $proveedor['proveedor']; ?></option>
@@ -62,18 +98,11 @@
            </select>
          </div>
          <div class="form-group">
-           <label for="producto">Producto</label>
-           <input type="text" placeholder="Ingrese nombre del producto" name="producto" id="producto" class="form-control">
+           <label for="ejercicio">Comentario</label>
+           <input type="text" placeholder="Ingrese un comenetario" name="comentario" id="comentario" class="form-control">
          </div>
-         <div class="form-group">
-           <label for="precio">Precio</label>
-           <input type="text" placeholder="Ingrese precio" class="form-control" name="precio" id="precio">
-         </div>
-         <div class="form-group">
-           <label for="cantidad">Cantidad</label>
-           <input type="number" placeholder="Ingrese cantidad" class="form-control" name="cantidad" id="cantidad">
-         </div>
-         <input type="submit" value="Guardar Producto" class="btn btn-primary">
+        
+         <input type="submit" value="Guardar Ejercicio" class="btn btn-primary">
        </form>
      </div>
    </div>
