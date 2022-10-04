@@ -74,12 +74,12 @@ if ($result_sql == 0) {
                               if ($rol == 2) {
                                 echo "selected";
                               }
-                              ?>>Supervisor</option>
+                              ?>>Entrenador</option>
             <option value="3" <?php
                               if ($rol == 3) {
                                 echo "selected";
                               }
-                              ?>>Vendedor</option>
+                              ?>>Tenista</option>
           </select>
         </div>
         <button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i> Editar Usuario</button>

@@ -80,7 +80,7 @@
          <div class="form-group">
            <label>Entrenador</label>
            <?php
-            $query = mysqli_query($conexion, "SELECT codproveedor, proveedor FROM proveedor ORDER BY codproveedor ASC");
+            $query = mysqli_query($conexion, "SELECT id, nombres FROM entrenadores ORDER BY id ASC");
             $resultado = mysqli_num_rows($query);
             ?>
            <select id="id_entrenador" name="id_entrenador" class="form-control">
@@ -90,7 +90,7 @@
                 while ($proveedor = mysqli_fetch_array($query)) {
                   // code...
               ?>
-                 <option value="<?php echo $proveedor['codproveedor']; ?>"><?php echo $proveedor['proveedor']; ?></option>
+                 <option value="<?php echo $proveedor['id']; ?>"><?php echo $proveedor['nombres']; ?></option>
              <?php
                 }
               }
