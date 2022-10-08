@@ -6,7 +6,7 @@
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Ejercicios</h1>
-		<a href="registro_producto.php" class="btn btn-primary">Nuevo</a>
+		<a href="registro_ejercicio.php" class="btn btn-primary">Nuevo</a>
 	</div>
 
 	<div class="row">
@@ -47,7 +47,7 @@
 									<td>
 										<a href="agregar_producto.php?id=<?php echo $data['id']; ?>" class="btn btn-primary"><i class='fas fa-audio-description'></i></a>
 
-										<a href="editar_producto.php?id=<?php echo $data['id']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
+										<a href="editar_ejercicio.php?id=<?php echo $data['id']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
 
 										<form action="eliminar_producto.php?id=<?php echo $data['id']; ?>" method="post" class="confirmar d-inline">
 											<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>

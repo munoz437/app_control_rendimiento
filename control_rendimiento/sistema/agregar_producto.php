@@ -4,11 +4,11 @@ include "../conexion.php";
 // Validar producto
 
 if (empty($_REQUEST['id'])) {
-    header("Location: lista_productos.php");
+    header("Location: lista_ejercicio.php");
 } else {
     $id_producto = $_REQUEST['id'];
     if (!is_numeric($id_producto)) {
-        header("Location: lista_productos.php");
+        header("Location: lista_ejercicio.php");
     }
     $query_producto = mysqli_query($conexion, "SELECT codproducto, descripcion, proveedor, precio, existencia FROM producto WHERE codproducto = $id_producto");
     $result_producto = mysqli_num_rows($query_producto);
@@ -16,7 +16,7 @@ if (empty($_REQUEST['id'])) {
     if ($result_producto > 0) {
         $data_producto = mysqli_fetch_assoc($query_producto);
     } else {
-        header("Location: lista_productos.php");
+        header("Location: lista_ejercicio.php");
     }
 }
 // Agregar Productos a entrada
@@ -72,7 +72,7 @@ if (!empty($_POST)) {
                 </div>
 
                 <input type="submit" value="Actualizar" class="btn btn-primary">
-                <a href="lista_productos.php" class="btn btn-danger">Regresar</a>
+                <a href="lista_ejercicio.php" class="btn btn-danger">Regresar</a>
             </form>
         </div>
     </div>

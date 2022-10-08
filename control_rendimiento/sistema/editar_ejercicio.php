@@ -33,11 +33,11 @@ if (!empty($_POST)) {
 
 
 if (empty($_REQUEST['id'])) {
-  header("Location: lista_productos.php");
+  header("Location: lista_ejercicio.php");
 } else {
   $id = $_REQUEST['id'];
   if (!is_numeric($id)) {
-    header("Location: lista_productos.php");
+    header("Location: lista_ejercicio.php");
   }
   $query = mysqli_query($conexion, "SELECT id,nombre, descripcion, video, tiempo, id_tenista,id_entrenador,fecha,comentario FROM ejercicio  WHERE id = $id");
   $result = mysqli_num_rows($query);
@@ -45,7 +45,7 @@ if (empty($_REQUEST['id'])) {
   if ($result > 0) {
     $data = mysqli_fetch_assoc($query);
   } else {
-    header("Location: lista_productos.php");
+    header("Location: lista_ejercicio.php");
   }
 }
 ?>
