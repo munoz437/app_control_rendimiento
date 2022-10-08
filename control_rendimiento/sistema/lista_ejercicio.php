@@ -39,13 +39,16 @@
 									<td><?php echo $data['id']; ?></td>
 									<td><?php echo $data['nombre']; ?></td>
 									<td><?php echo $data['descripcion']; ?></td>
-									<td><?php echo $data['video']; ?></td>
+									<td>
+										<iframe width="300" height="120" src="<?php echo $data['video']; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										
+									</td>
 									<td><?php echo $data['tiempo']; ?></td>
 									<td><?php echo $data['fecha']; ?></td>
 									<td><?php echo $data['comentario']; ?></td>
 										<?php if ($_SESSION['rol'] == 1) { ?>
 									<td>
-										<a href="agregar_producto.php?id=<?php echo $data['id']; ?>" class="btn btn-primary"><i class='fas fa-audio-description'></i></a>
+										<!-- <a href="agregar_producto.php?id=<?php //echo $data['id']; ?>" class="btn btn-primary"><i class='fas fa-audio-description'></i></a> -->
 
 										<a href="editar_ejercicio.php?id=<?php echo $data['id']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
 
