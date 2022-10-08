@@ -4,6 +4,6 @@ if (!empty($_GET['id'])) {
     $id = $_GET['id'];
     $query_delete = mysqli_query($conexion, "DELETE FROM proveedor WHERE codproveedor = $id");
     mysqli_close($conexion);
-    header("location: lista_proveedor.php");
+    header("location: lista_entrenador.php");
 }
 ?>

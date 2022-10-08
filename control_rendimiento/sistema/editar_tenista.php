@@ -30,13 +30,13 @@ if (!empty($_POST)) {
 // Mostrar Datos
 
 if (empty($_REQUEST['id'])) {
-  header("Location: lista_cliente.php");
+  header("Location: lista_tenista.php");
 }
 $idcliente = $_REQUEST['id'];
 $sql = mysqli_query($conexion, "SELECT * FROM cliente WHERE idcliente = $idcliente");
 $result_sql = mysqli_num_rows($sql);
 if ($result_sql == 0) {
-  header("Location: lista_cliente.php");
+  header("Location: lista_tenista.php");
 } else {
   while ($data = mysqli_fetch_array($sql)) {
     $idcliente = $data['idcliente'];    

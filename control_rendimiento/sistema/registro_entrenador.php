@@ -63,7 +63,7 @@ mysqli_close($conexion);
                         <input type="date" placeholder="Ingrese Fecha de nacimiento" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control">
                     </div>
                     <input type="submit" value="Guardar Entrenador" class="btn btn-primary">
-                    <a href="lista_proveedor.php" class="btn btn-danger">Regresar</a>
+                    <a href="lista_entrenador.php" class="btn btn-danger">Regresar</a>
                 </form>
             </div>
         </div>

@@ -55,8 +55,8 @@
 		</a>
 		<div id="collapseClientes" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="registro_cliente.php">Nuevo Tenista</a>
-				<a class="collapse-item" href="lista_cliente.php">Tenistas</a>
+				<a class="collapse-item" href="registro_tenista.php">Nuevo Tenista</a>
+				<a class="collapse-item" href="lista_tenista.php">Tenistas</a>
 			</div>
 		</div>
 	</li>
@@ -68,8 +68,8 @@
 		</a>
 		<div id="collapseProveedor" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="registro_proveedor.php">Nuevo Entrenador</a>
-				<a class="collapse-item" href="lista_proveedor.php">Entrenadores</a>
+				<a class="collapse-item" href="registro_entrenador.php">Nuevo Entrenador</a>
+				<a class="collapse-item" href="lista_entrenador.php">Entrenadores</a>
 			</div>
 		</div>
 	</li>
