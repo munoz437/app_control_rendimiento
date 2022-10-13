@@ -134,7 +134,7 @@
 				</div>
 			</div>
 		</div>
-		<?php if ($_SESSION['rol'] == 1) { ?>
+		<?php if (false) { ?>
 			<div class="col-lg-6">
 				<div class="card">
 					<div class="card-header bg-primary text-white">
@@ -179,7 +179,7 @@
 					</div>
 				</div>
 			</div>
-		<?php } else { ?>
+		<?php } else if(false) { ?>
 			<div class="col-lg-6">
 				<div class="card">
 					<div class="card-header bg-primary text-white">

@@ -36,7 +36,7 @@
 
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-			<i class="fas fa-fw fa-wrench"></i>
+			<i class="fas fa-tasks"></i>
 			<span>Ejercicios</span>
 		</a>
 		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
@@ -63,7 +63,7 @@
 
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="true" aria-controls="collapseUtilities">
-			<i class="fas fa-hospital"></i>
+			<i class="fas fa-baseball-ball"></i>
 			<span>Entrenador</span>
 		</a>
 		<div id="collapseProveedor" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
@@ -73,6 +73,19 @@
 			</div>
 		</div>
 	</li>
+	<?php if ($_SESSION['rol'] == 1) { ?>
+		<li class="nav-item">
+			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRendimiento" aria-expanded="true" aria-controls="collapseUtilities">
+				<i class="fas fa-chart-bar"></i>
+				<span>Rendimiento</span>
+			</a>
+			<div id="collapseRendimiento" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<a class="collapse-item" href="registro_rendimiento.php">Medir rendimiento</a>
+				</div>
+			</div>
+		</li>
+	<?php } ?>
 	<?php if ($_SESSION['rol'] == 1) { ?>
 		<!-- Nav Item - Usuarios Collapse Menu -->
 		<li class="nav-item">
@@ -84,6 +97,20 @@
 				<div class="bg-white py-2 collapse-inner rounded">
 					<a class="collapse-item" href="registro_usuario.php">Nuevo Usuario</a>
 					<a class="collapse-item" href="lista_usuarios.php">Usuarios</a>
+				</div>
+			</div>
+		</li>
+	<?php } ?>
+	<?php if ($_SESSION['rol'] == 1) { ?>
+		<!-- Nav Item - Usuarios Collapse Menu -->
+		<li class="nav-item">
+			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseConfiguracion" aria-expanded="true" aria-controls="collapseConfiguracion">
+				<i class="fas fa-cog"></i>
+				<span>Configuración</span>
+			</a>
+			<div id="collapseConfiguracion" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<a class="collapse-item" href="configuracion.php">Ver configuración</a>
 				</div>
 			</div>
 		</li>
