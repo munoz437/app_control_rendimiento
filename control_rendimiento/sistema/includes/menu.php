@@ -82,6 +82,7 @@
 			<div id="collapseRendimiento" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
 					<a class="collapse-item" href="registro_rendimiento.php">Medir rendimiento</a>
+					<a class="collapse-item" href="lista_rendimiento.php">Rendimiento</a>
 				</div>
 			</div>
 		</li>
