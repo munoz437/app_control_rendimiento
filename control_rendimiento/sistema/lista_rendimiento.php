@@ -6,7 +6,7 @@
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Rendimiento</h1>
-		<a href="registro_entrenador.php" class="btn btn-primary">Nuevo</a>
+		<a href="registro_rendimiento.php" class="btn btn-primary">Nuevo</a>
 	</div>
 
 	<div class="row">
@@ -37,8 +37,8 @@
 									<td><?php echo $data['rendimiento']; ?></td>							
 									<?php if ($_SESSION['rol'] == 1) { ?>
 									<td>
-										<a href="editar_entrenador.php?id=<?php echo $data['id']; ?>" class="btn btn-success"><i class='fas fa-edit'></i> Editar</a>
-										<form action="eliminar_proveedor.php?id=<?php echo $data['id']; ?>" method="post" class="confirmar d-inline">
+										<a href="editar_rendimiento.php?id=<?php echo $data['id']; ?>" class="btn btn-success"><i class='fas fa-edit'></i> Editar</a>
+										<form action="eliminar_rendimiento.php?id=<?php echo $data['id']; ?>" method="post" class="confirmar d-inline">
 											<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
 										</form>
 									</td>
