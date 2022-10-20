@@ -41,7 +41,7 @@
 		</a>
 		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-			<?php if ($_SESSION['rol'] == 1) { ?>
+			<?php if ($_SESSION['rol'] == 1 || $_SESSION['rol'] == 2) { ?>
 				<a class="collapse-item" href="registro_ejercicio.php">Nuevo Ejercicio</a>
 			<?php } ?>	
 				<a class="collapse-item" href="lista_ejercicio.php">Ejercicios</a>
