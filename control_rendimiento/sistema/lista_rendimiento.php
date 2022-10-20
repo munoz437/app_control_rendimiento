@@ -27,13 +27,13 @@
 						<?php
 						include "../conexion.php";
 
-						$query = mysqli_query($conexion, "SELECT * FROM rendimiento");
+						$query = mysqli_query($conexion, "SELECT R.*,T.nombre FROM rendimiento AS R,cliente as T WHERE R.id_tenista =T.idcliente");
 						$result = mysqli_num_rows($query);
 						if ($result > 0) {
 							while ($data = mysqli_fetch_assoc($query)) { ?>
 								<tr>
 									<td><?php echo $data['id']; ?></td>
-									<td><?php echo $data['id_tenista']; ?></td>
+									<td><?php echo $data['nombre']; ?></td>
 									<td><?php echo $data['rendimiento']; ?></td>							
 									<?php if ($_SESSION['rol'] == 1) { ?>
 									<td>

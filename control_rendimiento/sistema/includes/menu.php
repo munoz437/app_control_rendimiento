@@ -41,13 +41,15 @@
 		</a>
 		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
+			<?php if ($_SESSION['rol'] == 1) { ?>
 				<a class="collapse-item" href="registro_ejercicio.php">Nuevo Ejercicio</a>
+			<?php } ?>	
 				<a class="collapse-item" href="lista_ejercicio.php">Ejercicios</a>
 			</div>
 		</div>
 	</li>
 
-	
+	<?php if ($_SESSION['rol'] == 1 ||$_SESSION['rol'] == 2) { ?>
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClientes" aria-expanded="true" aria-controls="collapseUtilities">
 			<i class="fas fa-users"></i>
@@ -60,20 +62,22 @@
 			</div>
 		</div>
 	</li>
-
-	<li class="nav-item">
-		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="true" aria-controls="collapseUtilities">
-			<i class="fas fa-baseball-ball"></i>
-			<span>Entrenador</span>
-		</a>
-		<div id="collapseProveedor" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="registro_entrenador.php">Nuevo Entrenador</a>
-				<a class="collapse-item" href="lista_entrenador.php">Entrenadores</a>
+	<?php } ?>
+	<?php if ($_SESSION['rol'] == 1) { ?>			
+		<li class="nav-item">
+			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProveedor" aria-expanded="true" aria-controls="collapseUtilities">
+				<i class="fas fa-baseball-ball"></i>
+				<span>Entrenador</span>
+			</a>
+			<div id="collapseProveedor" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<a class="collapse-item" href="registro_entrenador.php">Nuevo Entrenador</a>
+					<a class="collapse-item" href="lista_entrenador.php">Entrenadores</a>
+				</div>
 			</div>
-		</div>
-	</li>
-	<?php if ($_SESSION['rol'] == 1) { ?>
+		</li>
+	<?php } ?>
+	
 		<li class="nav-item">
 			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRendimiento" aria-expanded="true" aria-controls="collapseUtilities">
 				<i class="fas fa-chart-bar"></i>
@@ -86,7 +90,7 @@
 				</div>
 			</div>
 		</li>
-	<?php } ?>
+	
 	<?php if ($_SESSION['rol'] == 1) { ?>
 		<!-- Nav Item - Usuarios Collapse Menu -->
 		<li class="nav-item">
