@@ -41,7 +41,7 @@ permisos();
 $conexion =  Conectar("webapsgt_admin","DesaUmg2021*");
 if ($_SERVER['REQUEST_METHOD'] == 'GET'){
     if (isset($_GET['id'])) {      
-      $sql = $conexion->prepare("SELECT R.*,T.nombre FROM rendimiento AS R,cliente as T WHERE R.id_tenista =T.idcliente AND id=:id");
+      $sql = $conexion->prepare("SELECT R.*,CONCAT(T.nombre,' ',T.apellidos) AS nombre FROM rendimiento AS R,cliente as T WHERE R.id_tenista =T.idcliente AND id=:id");
       $sql->bindValue(':id', $_GET['id']);
       $sql->execute();
       header("HTTP/1.1 200 OK");
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
       exit();
     }
     else{      
-      $sql = $conexion->prepare("SELECT R.*,T.nombre FROM rendimiento AS R,cliente as T WHERE R.id_tenista =T.idcliente");
+      $sql = $conexion->prepare("SELECT R.*,CONCAT(T.nombre,' ',T.apellidos) AS nombre FROM rendimiento AS R,cliente as T WHERE R.id_tenista =T.idcliente");
       $sql->execute();
       $sql->setFetchMode(PDO::FETCH_ASSOC);
       header("HTTP/1.1 200 OK");

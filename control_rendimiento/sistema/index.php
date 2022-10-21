@@ -158,7 +158,7 @@ series.states.create("hidden", {
 // Set data
 // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
 // Set data
-let url = 'http://localhost/Webserver/umg/app_control_rendimiento/control_rendimiento/sistema/rendimiento.php';
+let url = 'http://rendimiento.webappsgt.com/app_control_rendimiento/control_rendimiento/sistema/rendimiento.php';
 fetch(url)
      .then(response => response.json())
      .then(datos => mostrar(datos))

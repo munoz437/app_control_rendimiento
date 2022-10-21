@@ -72,7 +72,7 @@
 
                 if ($result > 0) {
                   while ($data = mysqli_fetch_assoc($query)) { ?>
-                    <option value="<?php echo $data['idcliente']; ?>"><?php echo $data['nombre']; ?></option>
+                    <option value="<?php echo $data['idcliente']; ?>"><?php echo $data['nombre'].' '.$data['apellidos']; ?></option>
                   <?php }
                 } ?>
            </select>
