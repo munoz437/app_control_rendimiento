@@ -1,4 +1,10 @@
 <?php include_once "includes/header.php"; ?>
+<style>
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
+</style>
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -88,148 +94,89 @@
 	</div>
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Configuración</h1>
+		<h1 class="h3 mb-0 text-gray-800">Rendimiento</h1>
 	</div>
 	<div class="row">
-		<div class="col-lg-6">
+		<div class="col-lg-12">
 			<div class="card">
 				<div class="card-header bg-primary text-white">
-					Información Personal
+					Rendimiento de los tenistas
 				</div>
-				<div class="card-body">
-					<div class="form-group">
-						<label>Nombre: <strong><?php echo $_SESSION['nombre']; ?></strong></label>
-					</div>
-					<div class="form-group">
-						<label>Correo: <strong><?php echo $_SESSION['email']; ?></strong></label>
-					</div>
-					<div class="form-group">
-						<label>Rol: <strong><?php echo $_SESSION['rol_name']; ?></strong></label>
-					</div>
-					<div class="form-group">
-						<label>Usuario: <strong><?php echo $_SESSION['user']; ?></strong></label>
-					</div>
-					<ul class="list-group">
-						<li class="list-group-item active">Cambiar Contraseña</li>
-						<form action="" method=" post" name="frmChangePass" id="frmChangePass" class="p-3">
-							<div class="form-group">
-								<label>Contraseña Actual</label>
-								<input type="password" name="actual" id="actual" placeholder="Clave Actual" required class="form-control">
-							</div>
-							<div class="form-group">
-								<label>Nueva Contraseña</label>
-								<input type="password" name="nueva" id="nueva" placeholder="Nueva Clave" required class="form-control">
-							</div>
-							<div class="form-group">
-								<label>Confirmar Contraseña</label>
-								<input type="password" name="confirmar" id="confirmar" placeholder="Confirmar clave" required class="form-control">
-							</div>
-							<div class="alertChangePass" style="display:none;">
-							</div>
-							<div>
-								<button type="submit" class="btn btn-primary btnChangePass">Cambiar Contraseña</button>
-							</div>
-						</form>
-					</ul>
+				<div class="card-body">			
+					<div id="chartdiv"></div>
 				</div>
 			</div>
 		</div>
-		<?php if (false) { ?>
-			<div class="col-lg-6">
-				<div class="card">
-					<div class="card-header bg-primary text-white">
-						Datos de la Empresa
-					</div>
-					<div class="card-body">
-						<form action="empresa.php" method="post" id="frmEmpresa" class="p-3">
-							<div class="form-group">
-								<label>Ruc:</label>
-								<input type="number" name="txtDni" value="<?php echo $dni; ?>" id="txtDni" placeholder="Dni de la Empresa" required class="form-control">
-							</div>
-							<div class="form-group">
-								<label>Nombre:</label>
-								<input type="text" name="txtNombre" class="form-control" value="<?php echo $nombre_empresa; ?>" id="txtNombre" placeholder="Nombre de la Empresa" required class="form-control">
-							</div>
-							<div class="form-group">
-								<label>Razon Social:</label>
-								<input type="text" name="txtRSocial" class="form-control" value="<?php echo $razonSocial; ?>" id="txtRSocial" placeholder="Razon Social de la Empresa">
-							</div>
-							<div class="form-group">
-								<label>Teléfono:</label>
-								<input type="number" name="txtTelEmpresa" class="form-control" value="<?php echo $telEmpresa; ?>" id="txtTelEmpresa" placeholder="teléfono de la Empresa" required>
-							</div>
-							<div class="form-group">
-								<label>Correo Electrónico:</label>
-								<input type="email" name="txtEmailEmpresa" class="form-control" value="<?php echo $emailEmpresa; ?>" id="txtEmailEmpresa" placeholder="Correo de la Empresa" required>
-							</div>
-							<div class="form-group">
-								<label>Dirección:</label>
-								<input type="text" name="txtDirEmpresa" class="form-control" value="<?php echo $dirEmpresa; ?>" id="txtDirEmpresa" placeholder="Dirreción de la Empresa" required>
-							</div>
-							<div class="form-group">
-								<label>IGV (%):</label>
-								<input type="text" name="txtIgv" class="form-control" value="<?php echo $igv; ?>" id="txtIgv" placeholder="IGV de la Empresa" required>
-							</div>
-							<?php echo isset($alert) ? $alert : ''; ?>
-							<div>
-								<button type="submit" class="btn btn-primary btnChangePass"><i class="fas fa-save"></i> Guardar Datos</button>
-							</div>
-
-						</form>
-					</div>
-				</div>
-			</div>
-		<?php } else if(false) { ?>
-			<div class="col-lg-6">
-				<div class="card">
-					<div class="card-header bg-primary text-white">
-						Datos de la Empresa
-					</div>
-					<div class="card-body">
-						<div class="p-3">
-							<div class="form-group">
-								<strong>Ruc:</strong>
-								<h6><?php echo $dni; ?></h6>
-							</div>
-							<div class="form-group">
-								<strong>Nombre:</strong>
-								<h6><?php echo $nombre_empresa; ?></h6>
-							</div>
-							<div class="form-group">
-								<strong>Razon Social:</strong>
-								<h6><?php echo $razonSocial; ?></h6>
-							</div>
-							<div class="form-group">
-								<strong>Teléfono:</strong>
-								<?php echo $telEmpresa; ?>
-							</div>
-							<div class="form-group">
-								<strong>Correo Electrónico:</strong>
-								<h6><?php echo $emailEmpresa; ?></h6>
-							</div>
-							<div class="form-group">
-								<strong>Dirección:</strong>
-								<h6><?php echo $dirEmpresa; ?></h6>
-							</div>
-							<div class="form-group">
-								<strong>IGV (%):</strong>
-								<h6><?php echo $igv; ?></h6>
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-
-		<?php } ?>
 	</div>
-
 
 </div>
 <!-- /.container-fluid -->
 
 </div>
 <!-- End of Main Content -->
+
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+<script>
+am5.ready(function() {
+
+// Create root element
+// https://www.amcharts.com/docs/v5/getting-started/#Root_element
+var root = am5.Root.new("chartdiv");
+
+// Set themes
+// https://www.amcharts.com/docs/v5/concepts/themes/
+root.setThemes([
+  am5themes_Animated.new(root)
+]);
+
+// Create chart
+// https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+var chart = root.container.children.push(
+  am5percent.PieChart.new(root, {
+    endAngle: 270
+  })
+);
+
+// Create series
+// https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+var series = chart.series.push(
+  am5percent.PieSeries.new(root, {
+    valueField: "rendimiento",
+    categoryField: "nombre",
+    endAngle: 270
+  })
+);
+
+series.states.create("hidden", {
+  endAngle: -90
+});
+
+// Set data
+// https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
+// Set data
+let url = 'http://localhost/Webserver/umg/app_control_rendimiento/control_rendimiento/sistema/rendimiento.php';
+fetch(url)
+     .then(response => response.json())
+     .then(datos => mostrar(datos))
+     .catch(e => console.log(e))
+
+const mostrar = (rendimientos)=>{
+		rendimientos.forEach(element => {
+			series.data.push(element.id_tenista)
+		});
+		series.data.setAll(rendimientos);
+		console.log(series.data);
+}
+
+
+series.appear(1000, 100);
+
+}); // end am5.ready()
+</script>
 
 
 <?php include_once "includes/footer.php"; ?>
