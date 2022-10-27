@@ -61,6 +61,31 @@ if (!empty($_POST)) {
                         <label for="rendimiento">Rendimiento</label>
                         <input type="number" placeholder="Ingrese rendimiento" name="rendimiento" id="rendimiento" class="form-control">
                     </div>
+                    <div class="form-group">
+                        <label for="rendimiento">Cantidad de Aces</label>
+                        <input type="number" placeholder="Ingrese aces" name="aces" id="aces" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="rendimiento">Puntos ganados</label>
+                        <input type="number" placeholder="Puntos ganados" name="pts_ganados" id="pts_ganados" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="rendimiento">Partidos ganados</label>
+                        <input type="number" placeholder="Partidos ganados" name="partidos_ganados" id="partidos_ganados" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="rendimiento">Puntos de recepción ganados</label>
+                        <input type="number" placeholder="Puntos de recepcion ganados" name="pts_r_ganados" id="pts_r_ganados" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="rendimiento">Tiebreaks ganados</label>
+                        <input type="number" placeholder="Tiebreaks ganados" name="t_ganados" id="t_ganados" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="rendimiento">Puntos ganadores</label>
+                        <input type="number" placeholder="Puntos ganadores" name="pts_ganadores" id="pts_ganadores" class="form-control">
+                    </div>
+                    
                     
                   
                     <input type="submit" value="Guardar Rendimiento" class="btn btn-primary">

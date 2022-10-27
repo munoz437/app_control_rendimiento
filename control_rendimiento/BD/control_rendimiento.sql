@@ -6,4 +6,5 @@ CREATE TABLE `webapsgt_control_rendimiento`.`ejercicio` ( `id` INT(10) NOT NULL 
 
 --
 CREATE TABLE `webapsgt_control_rendimiento`.`rendimiento` ( `id` INT(10) NOT NULL AUTO_INCREMENT , `id_tenista` INT(10) NOT NULL , `ace` INT(10) NULL , `rendimiento` INT(10) NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
---
+-- Rendimiento
+ALTER TABLE `rendimiento` ADD `pts_ganados` INT(11) NULL AFTER `ace`, ADD `partidos_ganados` INT(11) NULL AFTER `pts_ganados`, ADD `pts_r_ganados` INT(11) NULL AFTER `partidos_ganados`, ADD `t_ganados` INT(11) NULL AFTER `pts_r_ganados`, ADD `pts_ganadores` INT(11) NULL AFTER `t_ganados`;
