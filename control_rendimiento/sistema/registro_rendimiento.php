@@ -3,16 +3,23 @@ include_once "includes/header.php";
 include "../conexion.php";
 if (!empty($_POST)) {
     $alert = "";
-    if (empty($_POST['rendimiento'])) {
+    if (empty($_POST['id_tenista'])) {
         $alert = '<div class="alert alert-danger" role="alert">
                         Estos campos son obligatorios
                     </div>';
     } else {
         $id_tenista = $_POST['id_tenista'];
-        $rendimiento = $_POST['rendimiento']; 
+        $aces = $_POST['aces'];
+        $pts_ganados = $_POST['pts_ganados'];
+        $partidos_ganados = $_POST['partidos_ganados'];
+        $pts_r_ganados = $_POST['pts_r_ganados'];
+        $t_ganados = $_POST['t_ganados'];
+        $pts_ganadores = $_POST['pts_ganadores']; 
+        $rendimiento=$aces+$pts_ganados+$partidos_ganados+$pts_r_ganados+$t_ganados+$pts_ganadores;
+        $rendimiento=($rendimiento/6);
        
 
-        $query_insert = mysqli_query($conexion, "INSERT INTO rendimiento(id_tenista,rendimiento) values ('$id_tenista', '$rendimiento')");
+        $query_insert = mysqli_query($conexion, "INSERT INTO rendimiento(id_tenista,ace,pts_ganados,partidos_ganados,pts_r_ganados,t_ganados,pts_ganadores,rendimiento) values ('$id_tenista','$aces','$pts_ganados','$partidos_ganados','$pts_r_ganados','$t_ganados','$pts_ganadores','$rendimiento')");
         if ($query_insert) {
             $alert = '<div class="alert alert-primary" role="alert">
                         Rendimiento Registrado
@@ -57,10 +64,10 @@ if (!empty($_POST)) {
                         </select>
                     </div> 
                     
-                    <div class="form-group">
+                   <!-- <div class="form-group">
                         <label for="rendimiento">Rendimiento</label>
                         <input type="number" placeholder="Ingrese rendimiento" name="rendimiento" id="rendimiento" class="form-control">
-                    </div>
+                    </div>-->
                     <div class="form-group">
                         <label for="rendimiento">Cantidad de Aces</label>
                         <input type="number" placeholder="Ingrese aces" name="aces" id="aces" class="form-control">
