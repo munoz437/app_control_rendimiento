@@ -35,7 +35,7 @@ if (empty($_REQUEST['id'])) {
   if (!is_numeric($id)) {
     header("Location: lista_rendimiento.php");
   }
-  $query = mysqli_query($conexion, "SELECT id, id_tenista,rendimiento FROM rendimiento  WHERE id = $id");
+  $query = mysqli_query($conexion, "SELECT * FROM rendimiento  WHERE id = $id");
   $result = mysqli_num_rows($query);
 
   if ($result > 0) {
@@ -71,14 +71,34 @@ if (empty($_REQUEST['id'])) {
                     $result = mysqli_num_rows($query1);
                     if ($result > 0) {
                       while ($data1 = mysqli_fetch_assoc($query1)) { ?>
-                        <option value="<?php echo $data1['idcliente']; ?>"><?php echo $data1['nombre']; ?></option>
+                        <option value="<?php echo $data1['idcliente']; ?>"><?php echo $data1['nombre'].' '.$data1['apellidos'];; ?></option>
                       <?php }
                     } ?>
               </select>
             </div>                      
             <div class="form-group">
-              <label for="precio">Rendimiento</label>
-              <input type="text" placeholder="Rendimiento" class="form-control" name="rendimiento" id="rendimiento" value="<?php echo $data['rendimiento']; ?>">
+              <label for="precio">Cantidad de Aces</label>
+              <input type="number" placeholder="Ingrese aces" class="form-control" name="aces" id="aces" value="<?php echo $data['ace']; ?>">
+            </div>
+            <div class="form-group">
+              <label for="precio">Puntos ganados</label>
+              <input type="text" placeholder="Puntos ganados" class="form-control" name="pts_ganados" id="pts_ganados" value="<?php echo $data['pts_ganados']; ?>">
+            </div>
+            <div class="form-group">
+              <label for="precio">Partidos ganados</label>
+              <input type="number" placeholder="Partidos ganados" class="form-control" name="partidos_ganados" id="partidos_ganados" value="<?php echo $data['partidos_ganados']; ?>">
+            </div>
+            <div class="form-group">
+              <label for="precio">Puntos de recepción ganados</label>
+              <input type="text" placeholder="Puntos de recepción ganados" class="form-control" name="pts_r_ganados" id="pts_r_ganados" value="<?php echo $data['pts_r_ganados']; ?>">
+            </div>
+            <div class="form-group">
+              <label for="precio">Tiebreaks ganados</label>
+              <input type="text" placeholder="Tiebreaks ganados" class="form-control" name="t_ganados" id="t_ganados" value="<?php echo $data['t_ganados']; ?>">
+            </div>
+            <div class="form-group">
+              <label for="precio">Puntos ganadores</label>
+              <input type="text" placeholder="Puntos ganadores" class="form-control" name="pts_ganadores" id="pts_ganadores" value="<?php echo $data['pts_ganadores']; ?>">
             </div>
 
 
