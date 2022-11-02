@@ -17,6 +17,10 @@
 						<tr>
 							<th>#</th>
 							<th>TENISTA</th>
+							<th>ACE</th>							
+							<th>PUNTOS GANADOS</th>							
+							<th>PARTIDOS GANADOS</th>							
+							<th>TIEBREAKS GANADOS</th>							
 							<th>RENDIMIENTO</th>							
 							<?php if ($_SESSION['rol'] == 1) { ?>
 							<th>ACCIONES</th>
@@ -27,13 +31,17 @@
 						<?php
 						include "../conexion.php";
 
-						$query = mysqli_query($conexion, "SELECT R.*,T.nombre FROM rendimiento AS R,cliente as T WHERE R.id_tenista =T.idcliente");
+						$query = mysqli_query($conexion, "SELECT R.*,T.nombre FROM rendimiento AS R,cliente as T WHERE R.id_tenista=T.idcliente ORDER BY R.rendimiento DESC");
 						$result = mysqli_num_rows($query);
 						if ($result > 0) {
 							while ($data = mysqli_fetch_assoc($query)) { ?>
 								<tr>
 									<td><?php echo $data['id']; ?></td>
 									<td><?php echo $data['nombre']; ?></td>
+									<td><?php echo $data['ace']; ?></td>
+									<td><?php echo $data['pts_ganados']; ?></td>
+									<td><?php echo $data['partidos_ganados']; ?></td>
+									<td><?php echo $data['t_ganados']; ?></td>
 									<td><?php echo $data['rendimiento']; ?></td>							
 									<?php if ($_SESSION['rol'] == 1) { ?>
 									<td>
