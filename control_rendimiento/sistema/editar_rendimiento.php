@@ -10,10 +10,17 @@ if (!empty($_POST)) {
   } else {
       $id=$_POST['id'];
       $id_tenista = $_POST['id_tenista'];
-      $rendimiento = $_POST['rendimiento'];
+      $ace = $_POST['aces'];
+      $pts_ganados = $_POST['pts_ganados'];
+      $partidos_ganados = $_POST['partidos_ganados'];
+      $pts_r_ganados = $_POST['pts_r_ganados'];
+      $t_ganados = $_POST['t_ganados'];
+      $pts_ganadores = $_POST['pts_ganadores'];
+      $rendimiento=$ace+$pts_ganados+$partidos_ganados+$pts_r_ganados+$t_ganados+$pts_ganadores;
+      $rendimiento=($rendimiento/6);
 
     
-      $query_update = mysqli_query($conexion, "UPDATE rendimiento SET id_tenista = '$id_tenista', rendimiento = '$rendimiento' WHERE id = $id");
+      $query_update = mysqli_query($conexion, "UPDATE rendimiento SET id_tenista = '$id_tenista',ace = '$ace',pts_ganados = '$pts_ganados',partidos_ganados='$partidos_ganados',pts_r_ganados='$pts_r_ganados',t_ganados='$t_ganados',pts_ganadores='$pts_ganadores' ,rendimiento = '$rendimiento' WHERE id = $id");
     if ($query_update) {
       $alert = '<div class="alert alert-primary" role="alert">
               Modificado
