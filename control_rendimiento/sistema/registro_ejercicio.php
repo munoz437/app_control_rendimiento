@@ -103,6 +103,7 @@
          </div>
         
          <input type="submit" value="Guardar Ejercicio" class="btn btn-primary">
+         <a href="lista_ejercicio.php" class="btn btn-danger">Regresar</a>
        </form>
      </div>
    </div>

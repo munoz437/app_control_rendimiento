@@ -75,6 +75,7 @@ if ($result_sql == 0) {
         </div>
 
         <input type="submit" value="Editar Entrenador" class="btn btn-primary">
+        <a href="lista_entrenador.php" class="btn btn-danger">Regresar</a>
       </form>
     </div>
   </div>

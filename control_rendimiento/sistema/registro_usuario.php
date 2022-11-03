@@ -85,6 +85,7 @@ if (!empty($_POST)) {
                         ?>
                     </select></div>
                 <input type="submit" value="Guardar Usuario" class="btn btn-primary">
+                <a href="lista_usuarios.php" class="btn btn-danger">Regresar</a>
             </form>
         </div>
     </div>

@@ -123,6 +123,7 @@ if (empty($_REQUEST['id'])) {
 
 
             <input type="submit" value="Actualizar Ejercicio" class="btn btn-primary">
+            <a href="lista_ejercicio.php" class="btn btn-danger">Regresar</a>
           </form>
         </div>
       </div>

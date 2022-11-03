@@ -90,6 +90,7 @@ if (!empty($_POST)) {
                     <input type="password" class="form-control" placeholder="Ingrese Contraseña" name="clave" id="clave">
                 </div>
                 <input type="submit" value="Guardar Tenista" class="btn btn-primary btn-block">
+                <a href="lista_tenista.php" class="btn btn-danger">Regresar</a>
             </form>
         </div>
     </div>

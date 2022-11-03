@@ -88,6 +88,7 @@ if ($result_sql == 0) {
                   <input type="text" placeholder="Ingrese peso" name="peso" class="form-control" id="peso" value="<?php echo $peso; ?>">
                 </div>
                 <button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i> Editar Tenista</button>
+                <a href="lista_tenista.php" class="btn btn-danger">Regresar</a>
               </form>
             </div>
           </div>
