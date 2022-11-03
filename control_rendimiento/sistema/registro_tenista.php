@@ -17,9 +17,14 @@ if (!empty($_POST)) {
         $fecha_nacimiento = $_POST['fecha_nacimiento'];
         $altura = $_POST['altura'];
         $peso = $_POST['peso'];
+        $user = $_POST['usuario'];
+        $clave = md5($_POST['clave']); 
+        $correo=$nombre."@gmail.com";
      
             $query_insert = mysqli_query($conexion, "INSERT INTO cliente(nombre,telefono,direccion, usuario_id,apellidos,fecha_nacimiento,peso,altura) values ('$nombre', '$telefono', '$direccion', '$usuario_id','$apellidos','$fecha_nacimiento','$altura','$peso')");
-            if ($query_insert) {
+            $query_insert2 = mysqli_query($conexion, "INSERT INTO usuario(nombre,correo,usuario,clave,rol) values ('$nombre', '$correo', '$user', '$clave', '3')");
+
+            if ($query_insert && $query_insert2) {
                 $alert = '<div class="alert alert-primary" role="alert">
                                     Tenista Registrado
                                 </div>';
@@ -75,6 +80,14 @@ if (!empty($_POST)) {
                 <div class="form-group">
                     <label for="altura">Altura</label>
                     <input type="number" placeholder="Ingrese altura" name="altura" id="altura" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" class="form-control" placeholder="Ingrese Usuario" name="usuario" id="usuario">
+                </div>
+                <div class="form-group">
+                    <label for="clave">Contraseña</label>
+                    <input type="password" class="form-control" placeholder="Ingrese Contraseña" name="clave" id="clave">
                 </div>
                 <input type="submit" value="Guardar Tenista" class="btn btn-primary btn-block">
             </form>

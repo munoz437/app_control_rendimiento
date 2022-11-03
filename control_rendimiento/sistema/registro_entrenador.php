@@ -12,11 +12,16 @@ if (!empty($_POST)) {
         $apellidos = $_POST['apellidos'];
         $fecha_nacimiento=$_POST['fecha_nacimiento'];
         $direccion = $_POST['direccion'];
-        $telefono = $_POST['telefono'];  
+        $telefono = $_POST['telefono']; 
+        $user = $_POST['usuario'];
+        $clave = md5($_POST['clave']); 
+        $correo=$nombres."@gmail.com";
        
 
         $query_insert = mysqli_query($conexion, "INSERT INTO entrenadores(nombres,apellidos,fecha_nacimiento,direccion,telefono) values ('$nombres', '$apellidos', '$fecha_nacimiento', '$direccion','$telefono')");
-        if ($query_insert) {
+        $query_insert2 = mysqli_query($conexion, "INSERT INTO usuario(nombre,correo,usuario,clave,rol) values ('$nombres', '$correo', '$user', '$clave', '2')");
+
+        if ($query_insert && $query_insert2) {
             $alert = '<div class="alert alert-primary" role="alert">
                         Entrenador Registrado
                     </div>';
@@ -61,6 +66,14 @@ mysqli_close($conexion);
                     <div class="form-group">
                         <label for="fecha_nac">Fecha de nacimiento</label>
                         <input type="date" placeholder="Ingrese Fecha de nacimiento" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="usuario">Usuario</label>
+                        <input type="text" class="form-control" placeholder="Ingrese Usuario" name="usuario" id="usuario">
+                     </div>
+                    <div class="form-group">
+                        <label for="clave">Contraseña</label>
+                        <input type="password" class="form-control" placeholder="Ingrese Contraseña" name="clave" id="clave">
                     </div>
                     <input type="submit" value="Guardar Entrenador" class="btn btn-primary">
                     <a href="lista_entrenador.php" class="btn btn-danger">Regresar</a>
