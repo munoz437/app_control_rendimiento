@@ -1,6 +1,7 @@
- <?php include_once "includes/header.php";
-  include "../conexion.php";
-  if (!empty($_POST)) {
+<?php
+include_once "includes/header.php";
+include "../conexion.php";
+if (!empty($_POST)) {
     $alert = "";
     if (empty($_POST['nombre']) || empty($_POST['descripcion'])) {
       $alert = '<div class="alert alert-danger" role="alert">
@@ -27,23 +28,21 @@
                 Error al registrar el ejercicio
               </div>';
       }
+    }  
     }
-  }
-  ?>
 
- <!-- Begin Page Content -->
- <div class="container-fluid">
+?>
 
-   <!-- Page Heading -->
-   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-     <h1 class="h3 mb-0 text-gray-800">Panel de Administración</h1>
-     <a href="lista_ejercicio.php" class="btn btn-primary">Regresar</a>
-   </div>
-
-   <!-- Content Row -->
-   <div class="row">
-     <div class="col-lg-6 m-auto">
-       <form action="" method="post" autocomplete="off">
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Content Row -->
+    <div class="row">
+        <div class="col-lg-6 m-auto">
+            <div class="card-header bg-primary text-white">
+                Registro de Ejercicio
+            </div>
+            <div class="card">
+            <form action="" method="post" autocomplete="off" class="card-body p-2">
          <?php echo isset($alert) ? $alert : ''; ?>         
         
          <div class="form-group">
@@ -105,13 +104,14 @@
          <input type="submit" value="Guardar Ejercicio" class="btn btn-primary">
          <a href="lista_ejercicio.php" class="btn btn-danger">Regresar</a>
        </form>
-     </div>
-   </div>
+            </div>
+        </div>
+    </div>
 
 
- </div>
- <!-- /.container-fluid -->
+</div>
+<!-- /.container-fluid -->
 
- </div>
- <!-- End of Main Content -->
- <?php include_once "includes/footer.php"; ?>
+</div>
+<!-- End of Main Content -->
+<?php include_once "includes/footer.php"; ?>
